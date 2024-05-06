@@ -1,0 +1,11 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className }: Props = Astro.props;
+---
+
+<button class=`border border-[var(--sky-blue)] p-2 text-[var(--sky-blue)] rounded-md hover:bg-[var(--sky-blue-hover)] font-mono ${className}`>
+  <slot />
+</button>

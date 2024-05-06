@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { LinksList } from "./LinksList";
+import React, { useEffect, useState } from "react";
 
 type ScrollDirectionType = 'up' | 'down' | 'none'
 
-export const NavBar = () => {
+export const NavBar = ({ children }: { children: React.ReactNode}) => {
   const [scrollDirection, setScrollDirection] = useState<ScrollDirectionType>('none')
-  console.log(scrollDirection)
+  // console.log(scrollDirection)
   
   let lastScrollY = 0
   useEffect(() => {
@@ -32,18 +31,8 @@ export const NavBar = () => {
   }, [])
 
   return (
-    <nav className={`[grid-area:nav] fixed top-0 ${scrollDirection === 'up' && 'top-0'} ${scrollDirection === 'down' && '-translate-y-[90px]'} transition-all duration-200 backdrop-blur-sm w-full h-[85px] shadow-md shadow-[var(--shadow-dark)] ${scrollDirection === 'none' && 'shadow-none'} p-4 flex justify-between`}>
-      <a href="#" className="w-14 h-14 ml-4 p-1 hover:bg-[var(--sky-blue-hover)] border border-[var(--sky-blue)] rounded-md">
-        <img
-          src="https://res.cloudinary.com/jl-img-store/image/upload/v1661997155/Portafolio/jose_icon_adaptive_fore_enjr9l.png"
-          alt="Logo letra J"
-          className="object-cover w-full h-full rounded-md"
-        />
-      </a>
-      <div className="flex pr-6 gap-8 items-center">
-        <LinksList />
-        <button className="border border-[var(--sky-blue)] p-2 text-[var(--sky-blue)] rounded-md hover:bg-[var(--sky-blue-hover)] font-mono">Curriculum</button>
-      </div>
+    <nav className={`[grid-area:nav] py-2 px-8 flex items-center fixed top-0 ${scrollDirection === 'up' && 'top-0'} ${scrollDirection === 'down' && '-translate-y-[90px]'} transition-all duration-200 backdrop-blur-sm w-full h-[85px] shadow-md shadow-[var(--shadow-dark)] ${scrollDirection === 'none' && 'shadow-none'} flex justify-between`}>
+      {children}
     </nav> 
   );
 }
