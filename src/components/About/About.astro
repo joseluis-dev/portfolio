@@ -1,0 +1,110 @@
+---
+import CssIcon from "@/assets/CssIcon.astro";
+import HtmlIcon from "@/assets/HtmlIcon.astro";
+import JavaScriptIcon from "@/assets/JavaScriptIcon.astro";
+import NextIcon from "@/assets/NextIcon.astro";
+import NodeIcon from "@/assets/NodeIcon.astro";
+import ReactIcon from "@/assets/ReactIcon.astro";
+import TailwindcssIcon from "@/assets/TailwindcssIcon.astro";
+import List from "../LIst/List.astro";
+import SectionTitle from "../SectionTitle/SectionTitle.astro";
+
+const skillList = [{
+  frontEnd: [
+    {
+      title: "Javascript",
+      Icon: JavaScriptIcon,
+    },
+    {
+      title: "React",
+      Icon: ReactIcon,
+    },
+    {
+      title: "Next",
+      Icon: NextIcon,
+    },
+    {
+      title: "Html",
+      Icon: HtmlIcon,
+    },
+    {
+      title: "Css",
+      Icon: CssIcon,
+    },
+    {
+      title: "Tailwindcss",
+      Icon: TailwindcssIcon,
+    },
+  ],
+  backEnd: [
+    {
+      title: "Node",
+      Icon: NodeIcon,
+    },
+  ],
+}]
+
+---
+
+<section id='about' class='min-h-[100vh] flex flex-col justify-center'>
+  <SectionTitle>Acerca de mí</SectionTitle>
+  <div class='about-info'>
+    <div class=''>
+      <p>Soy un fanático de la tecnología, por lo que elegí una carrera afín, pero no fue hasta que comencé mi carrera profesional que descubrí mi pasión por la programación, que empezó en 2016, creando un software en Arduino para manejar módulos xbee que servirían para un control de acceso inalámbrico.</p>
+      <p>Desde aquel entonces hasta el día de hoy, he podido trabajar en diferentes funcionalidades de software privados para empresas dedicadas a las telecomunicaciones.</p>
+      <p>Desde el 2021 me estoy preparando en el mundo del desarrollo Web, ya que he encontrado un gusto especial por crear aplicaciones para resolver problemas en diferentes áreas, adicionales a la de Networking.</p>
+      <p>He estado empleando estas tecnologías:</p>
+      <div class="my-2">
+        <List elements={skillList} />
+      </div>
+    </div>
+    <div class="img-container relative flex rounded-md">
+      <img
+      class="rounded-md"
+      src="https://res.cloudinary.com/jl-img-store/image/upload/c_scale,q_100,w_350/v1661997827/Portafolio/perfil_yuat2m.jpg"
+      alt="foto"
+      width={250}
+      height={250}
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-info {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px
+  }
+
+  .img-container::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--sky-blue-hover);
+    transition: all 0.5s ease;
+  }
+
+  .img-container {
+    border: 1px solid var(--sky-blue);
+    box-shadow: 10px 10px 10px 5px var(--sky-blue-hover);
+    transition: all 0.5s ease;
+  }
+
+  .img-container:hover {
+    box-shadow: 15px 15px 10px 5px var(--sky-blue-dark)
+  }
+
+  .img-container:hover::after {
+    background-color: transparent;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .about-info {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

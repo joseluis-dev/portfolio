@@ -1,0 +1,40 @@
+---
+// interface Proprs {
+//   title: string
+// }
+
+// const { title } = Astro.props
+---
+
+<h2 class="my-2">
+  <slot />
+</h2>
+
+
+<style>
+  h2 {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    color: var(--sky-blue);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-wrap: nowrap;
+  }
+
+  h2::before {
+    content: '\00BB';
+    margin-right: 0.5rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  }
+
+  h2::after {
+    content: '';
+    margin-left: 0.5rem;
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    width: 100%;
+    height: 1px;
+    background-color: var(--sky-blue);
+    position: relative;
+    top: 0.2rem;
+  }
+</style>
