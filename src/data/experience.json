@@ -1,0 +1,44 @@
+{
+  "experience": [
+    {
+      "id": "1",
+      "company": "V&V Comunicación",
+      "position": "Desarrollador de Software / Administrador de Red",
+      "period": "Mayo 2016 - Agosto 2018",
+      "tasks": [
+        "Primeros pasos en el desarrollo, aprendiendo las bases de la programación y escribiendo algo de código en Arduino y en Netbeans para un control de acceso inalámbrico.",
+        "Mayormente, experiencia en mi primera carrera, Ingeniería en Telecomunicaciones y Redes."
+      ]
+    },
+    {
+      "id": "2",
+      "company": "ClickNet S.A.",
+      "position": "Desarrollador Web",
+      "period": "Sept 2018 - Oct 2020",
+      "tasks": [
+        "Desarrollo de una aplicación ERP privado de administración de usuarios, usando ES6, ReactJS y Css.",
+        "Desarrollo de scripts para automatización de procesos en Mikrotik, usando Python."
+      ]
+    },
+    {
+      "id": "3",
+      "company": "NetSys S.A.S.",
+      "position": "Co-Founder / Desarrollador de aplicaciones web",
+      "period": "Nov 2020 - Presente",
+      "tasks": [
+        "Desarrollo de un sistema ERP en servidor privado, para gestión del servicio de internet, usando tecnologías como: ReactJS, NodeJS, Styled Components y MySQL.",
+        "Creación de la página web de la empresa, usando Html, Css y Javascript alojada en Netlify."
+      ]
+    },
+    {
+      "id": "4",
+      "company": "Freelance",
+      "position": "Profesional Independiente",
+      "period": "Jun 2022 - Presente",
+      "tasks": [
+        "Desarrollo de requerimientos y funcionalidades de una aplicación ERP para administración de clientes y usuarios.",
+        "Depuración y Refactorización de código para solucionar problemas."
+      ]
+    }
+  ]
+}

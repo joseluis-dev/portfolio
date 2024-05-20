@@ -1,0 +1,38 @@
+---
+---
+
+<nav id="nav-bar" class={`[grid-area:nav] py-2 px-8 flex items-center fixed top-0 transition-all duration-200 backdrop-blur-sm w-full h-[85px] shadow-[var(--shadow-dark)] justify-between z-50`}>
+  <slot />
+</nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const navBar = document.getElementById('nav-bar')
+    
+    window.scrollY === 0 ? navBar?.classList.add('shadow-none') : navBar?.classList.add('shadow-md')
+    
+    let lastScrollY = window.scrollY
+    window.addEventListener('scroll', () => {
+      if (window.scrollY === 0) {
+        navBar?.classList.remove('top-0')
+        navBar?.classList.remove('-translate-y-[90px]')
+        navBar?.classList.add('shadow-none')
+        return
+      }
+      if (window.scrollY > lastScrollY) {
+        navBar?.classList.remove('top-0')
+        navBar?.classList.remove('shadow-none')
+        navBar?.classList.add('-translate-y-[90px]')
+        navBar?.classList.add('shadow-md')
+      } else {
+        navBar?.classList.remove('-translate-y-[90px]')
+        navBar?.classList.remove('shadow-none')
+        navBar?.classList.add('top-0')
+        navBar?.classList.add('shadow-md')
+      }
+      lastScrollY = window.scrollY
+      // console.log(scrollDirection)
+    })
+
+  })
+</script>

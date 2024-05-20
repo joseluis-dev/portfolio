@@ -20,20 +20,20 @@ const { elements }: Props = Astro.props;
   {elements.map(element => {
     return (
       <li>
-        <h2>Frontend:</h2>
+        <h2 class="my-2">Frontend:</h2>
         <ul class="[grid-area:frontend] front-ul">
           {element.frontEnd.map(({ Icon, title }, index) => {
             return (
               <li class="flex gap-2 hover:text-[var(--sky-blue)] hover:bg-[var(--sky-blue-hover)] rounded-md p-2 transition-all duration-150">
                 <Icon />
-                <span>{title}</span>
+                <span class="text-nowrap">{title}</span>
               </li>
             )
           })}
         </ul>
       </li>
       <li>
-        <h2>Backend:</h2>
+        <h2 class="my-2">Backend:</h2>
         <ul class="[grid-area:backend] front-ul">
           {element.backEnd.map(({ Icon, title }, index) => {
             return (
@@ -52,18 +52,28 @@ const { elements }: Props = Astro.props;
 <style>
   .front-ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
   .main-ul {
     display: grid;
     gap: 1rem;
     grid-template-areas: 
+      "frontend backend"
       "frontend backend";
   }
 
   li > h2 {
     color: var(--sky-blue);
+  }
+
+  @media screen and (max-width: 768px) {
+    .main-ul {
+      justify-content: center;
+      grid-template-areas: 
+        "frontend frontend"
+        "backend backend";
+    }
   }
 </style>

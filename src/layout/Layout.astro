@@ -2,7 +2,7 @@
 import LinksList from "@/components/LinkList/LinksList.astro";
 import Button from "@/components/Button/Button.astro";
 import BurgerIcon from "@/assets/BurgerIcon.astro";
-import { NavBar } from "@/components/NavBar/NavBar";
+import NavBar from "@/components/NavBar/NavBar.astro";
 
 interface Props {
   title: string;
@@ -22,8 +22,8 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <div id="app" class="relative h-screen gap-2">
-      <NavBar client:load>
+    <div id="app" class="h-screen gap-2">
+      <NavBar>
         <a
           href="#"
           class="w-14 h-14 p-1 hover:bg-[var(--sky-blue-hover)] border border-[var(--sky-blue)] rounded-md"
@@ -81,6 +81,7 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     --bg-color: #051527;
+    --bg-color-dark: #030e1ba8;
     --bg-color-light: #0c233de3;
     --bg-hcolor: #05152798;
     --title-color: #ffffff;

@@ -1,0 +1,117 @@
+---
+interface Items {
+  id: string;
+  company: string;
+  position: string;
+  period: string;
+  tasks: string[];
+}
+interface Props {
+  items: Items[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="flex flex-col md:flex-row md:gap-4 mt-4">
+  <ul id="headers" class="flex overflow-auto relative bg-[var(--bg-color-dark)] rounded md:flex-col md:min-w-fit select-none">
+    <div id="dinamic-border"
+      class="
+        absolute border-b border-[var(--sky-blue)]
+        left-[var(--left)] top-[var(--top)]
+        w-[var(--width)] h-[var(--height)]
+        transition-all duration-300 ease-in-out
+        z-0
+        md:border-l md:border-[var(--sky-blue)] md:border-b-0
+      "></div>
+    {items.map((item, index) => (
+      <li id={`tab-${index}`} class="p-2 m-2 text-nowrap z-10 transition-colors duration-300 cursor-pointer">{item.company}</li>
+    ))}
+  </ul>
+  <ex-body class="w-full">
+    <ul id="ex-details" class="my-4 relative min-h-44">
+      {items.map((item, index) => (
+        <li id={`ex-detail-${index}`} class="absolute opacity-0 transition-all duration-300 flex flex-col gap-2">
+          <h3 class="text-xl md:text-2xl text-white">{item.position}</h3>
+          <p class="text-sm text-[var(--sky-blue)] font-mono">{item.period}</p>
+          <p>{item.tasks}</p>
+        </li>
+      ))}
+    </ul>
+  </ex-body>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const headers = document.querySelector('#headers') as HTMLElement;
+    const listItem = document.querySelectorAll('#headers li')
+    const dinamicBorder = document.querySelector('#dinamic-border') as HTMLElement;
+
+    const updateDimensions = ({ item }: { item: HTMLElement }) => {
+      const { left, top, width, height } = item?.getBoundingClientRect()
+      const { left: cleft, top: ctop } = headers.getBoundingClientRect();
+      // position relative to container
+      const leftRelative = left - cleft + headers.scrollLeft;
+      const topRelative = top - ctop;
+      
+      dinamicBorder?.style.setProperty('--left', `${leftRelative}px`);
+      dinamicBorder?.style.setProperty('--top', `${topRelative}px`)
+      dinamicBorder?.style.setProperty('--width', `${width}px`)
+      dinamicBorder?.style.setProperty('--height', `${height}px`);
+    }
+
+    window.addEventListener('resize', () => {
+      updateDimensions({ item: listItem[0] as HTMLElement });
+      (listItem[0] as HTMLElement)?.style.setProperty('color', 'var(--sky-blue)');
+      listItem.forEach(item => item.id !== `tab-0` && (item as HTMLElement).style.setProperty('color', 'var(--text-color)'));
+    })
+
+    updateDimensions({ item: listItem[0] as HTMLElement });
+    (listItem[0] as HTMLElement)?.style.setProperty('color', 'var(--sky-blue)');
+
+    listItem.forEach((item, index) => {
+      const currentItem = `tab-${index}`
+      item.addEventListener('click', () => {
+        // console.log({ left, top, width, height })
+        updateDimensions({ item: item as HTMLElement });
+        (item as HTMLElement)?.style.setProperty('color', 'var(--sky-blue)');
+        listItem.forEach(item => item.id !== currentItem && (item as HTMLElement).style.setProperty('color', 'var(--text-color)'));
+      })
+    })
+
+
+    const listDetails = document.querySelectorAll('#ex-details li')
+
+    const detailElement = listDetails[0] as HTMLElement;
+    detailElement.style.setProperty('opacity', '1');
+
+    listItem.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        listDetails.forEach((detail, i) => {
+          if (i === index) {
+            const detailElement = detail as HTMLElement;
+            detailElement.style.setProperty('opacity', '1');
+          } else {
+            const detailElement = detail as HTMLElement;
+            detailElement.style.setProperty('opacity', '0');
+          }
+        })
+      })
+    })
+  })
+</script>
+
+<style>
+  #headers::-webkit-scrollbar {
+    height: 5px;
+  }
+
+  #headers::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: var(--text-color);
+  }
+
+  #headers::-webkit-scrollbar-track {
+    background-color: var(--bg-color-dark);
+  }
+</style>

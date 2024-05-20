@@ -1,0 +1,12 @@
+---
+import SectionTitle from "@/components/SectionTitle/SectionTitle.astro";
+import { experience } from "@/data/experience.json";
+import DynamicTabs from "../DynamicTabs/DynamicTabs.astro";
+
+const reverseExperience = experience.sort((a, b) => Number(b.id) - Number(a.id));
+---
+
+<section id="experience" class="w-full min-h-[100vh] flex flex-col justify-center my-4 md:my-0">
+  <SectionTitle>Mi Experiencia</SectionTitle>
+  <DynamicTabs items={reverseExperience} />
+</section>
