@@ -1,0 +1,30 @@
+---
+import ProjectCard from "../ProjectCard/ProjectCard.astro";
+import SectionTitle from "../SectionTitle/SectionTitle.astro";
+import { projects } from "@/data/work.json"
+---
+
+<section id="projects" class="w-full min-h-[100vh] flex flex-col justify-center my-4 md:my-0">
+  <SectionTitle>Mis Poryectos</SectionTitle>
+  <div class="projects_list mt-4">
+    {projects.map(project => (
+      <ProjectCard
+        title={project.title}
+        type={project.type}
+        description={project.description}
+        skills={project.skills}
+        imgSrc={project.image}
+        link={project.link}
+        github={project.github}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .projects_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+</style>

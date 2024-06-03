@@ -1,0 +1,16 @@
+---
+const linkList = [
+  { id: 1, name: 'Acerca de', path: '#about' },
+  { id: 2, name: 'Experiencia', path: '#experience' },
+  { id: 3, name: 'Poryectos', path: '#projects' },
+  { id: 4, name: 'Contacto', path: '#contact' }
+]
+---
+
+<ul id="side-bar" class="flex flex-col gap-10 fixed z-40 -top-[100vh] right-0 left-0 bottom-0 w-full h-full justify-center items-center bg-[var(--bg-color)] transition-all duration-500 opacity-0 lg:hidden">
+  {linkList.map(link => (
+    <li>
+      <a href={link.path} class="p-2 border border-transparent hover:border hover:border-[var(--sky-blue)] hover:text-[var(--sky-blue)] rounded-md transition-all duration-200 text-xl">{link.name}</a>
+    </li>
+  ))}
+</ul>

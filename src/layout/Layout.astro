@@ -3,6 +3,7 @@ import LinksList from "@/components/LinkList/LinksList.astro";
 import Button from "@/components/Button/Button.astro";
 import BurgerIcon from "@/assets/BurgerIcon.astro";
 import NavBar from "@/components/NavBar/NavBar.astro";
+import SlideBar from "@/components/SlideBar/SlideBar.astro";
 
 interface Props {
   title: string;
@@ -37,11 +38,13 @@ const { title } = Astro.props;
         <div class="flex pr-6 gap-8 items-center">
           <LinksList />
           <Button className="hidden lg:block">Curriculum</Button>
-          <Button className="border-none lg:hidden">
+          <Button id="toggle-button" className="border-none lg:hidden">
             <BurgerIcon />
           </Button>
         </div>
       </NavBar>
+
+      <SlideBar />
 
       <aside class="hidden lg:block [grid-area:aside1] p-2">aside 1</aside>
 
@@ -86,7 +89,7 @@ const { title } = Astro.props;
     --bg-hcolor: #05152798;
     --title-color: #ffffff;
     --title2-color: #c9cedf;
-    --text-color: #b5b9c4;
+    --text-color: #d3d7e2;
     --sky-blue: #04bafc;
     --sky-blue-dark: #3eb4df6e;
     --sky-blue-hover: #00bbff2f;
@@ -127,3 +130,25 @@ const { title } = Astro.props;
     max-width: 800px
   }
 </style>
+
+<script>
+  const list = document.querySelector('#side-bar')
+  const toggleButton = document.querySelector('#toggle-button')
+  const items = document.querySelectorAll('#side-bar li')
+
+  toggleButton?.addEventListener('click', () => {
+    list?.classList.toggle('-top-[100vh]')
+    list?.classList.toggle('top-0')
+    list?.classList.toggle('opacity-0')
+    list?.classList.toggle('opacity-100')
+  })
+
+  items.forEach(item => {
+    item.addEventListener('click', () => {
+      list?.classList.toggle('-top-[100vh]')
+      list?.classList.toggle('top-0')
+      list?.classList.toggle('opacity-0')
+      list?.classList.toggle('opacity-100')
+    })
+  })
+</script>

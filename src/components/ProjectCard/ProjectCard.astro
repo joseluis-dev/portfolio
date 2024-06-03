@@ -1,0 +1,60 @@
+---
+import GithubIcon from '@/assets/GithubIcon.astro';
+import LinkIcon from '@/assets/LinkIcon.astro';
+
+interface Props {
+  title: string;
+  imgSrc: string;
+  type: string;
+  description: string;
+  skills: string[];
+  link: string;
+  github: string;
+}
+
+const { title, imgSrc, type, description, skills, link, github }: Props = Astro.props;
+---
+
+<article class="relative flex justify-center w-full h-[290px] rounded-md border border-[var(--sky-blue)] ">
+  <img src={imgSrc} alt="proyect image" class="rounded-md" />
+  <div class="absolute flex flex-col justify-between w-full h-full rounded-md p-4 backdrop-blur-sm bg-[var(--bg-color-dark)]">
+    <div class="flex flex-col">
+      <p class="text-[var(--sky-blue)] font-bold font-mono">{type}</p>
+      <h2 class="text-white text-xl">{title}</h2>
+    </div>
+    <div class="flex flex-col">
+      <p class="py-3">{description}</p>
+      <p class="flex gap-2 font-mono">{
+        skills.map((skill: string) => {
+          return `${skill} `
+        })
+      }</p>
+      <div class="flex gap-2 py-3 icons">
+        {link && <a href={link} target="_blank">
+          <LinkIcon width={20} height={20}/>
+        </a>}
+        {github && <a href={github} target="_blank">
+          <GithubIcon width={20} height={20}/>
+        </a>}
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .icons {
+    animation: colorPulse 2s infinite;
+  }
+
+  @keyframes colorPulse {
+    0% {
+      color: inherit;
+    }
+    50% {
+      color: var(--sky-blue);
+    }
+    100% {
+      color: inherit;
+    }
+  }
+</style>

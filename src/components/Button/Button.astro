@@ -1,11 +1,12 @@
 ---
 interface Props {
   className?: string;
+  id?: string;
 }
 
-const { className }: Props = Astro.props;
+const { className, id }: Props = Astro.props;
 ---
 
-<button class=`border border-[var(--sky-blue)] p-2 text-[var(--sky-blue)] rounded-md hover:bg-[var(--sky-blue-hover)] font-mono ${className}`>
+<button id={id} class=`border border-[var(--sky-blue)] p-2 text-[var(--sky-blue)] rounded-md hover:bg-[var(--sky-blue-hover)] font-mono ${className}`>
   <slot />
 </button>

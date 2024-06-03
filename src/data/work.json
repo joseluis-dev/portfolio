@@ -1,42 +1,44 @@
-[
-  {
-    "id": "1",
-    "type": "Proyecto Destacado",
-    "name": "React Library",
-    "description": "Hook sencillo de ventanas emergentes para React, que puede ser adjuntado a cualquier elemento html.",
-    "tags": ["ES6", "HTML", "CSS", "TypeScript", "NPM"],
-    "url": "https://res.cloudinary.com/jl-img-store/image/upload/v1682193849/Portafolio/Easy-Modal-Hook-Image_fzzict.png",
-    "link": "https://www.npmjs.com/package/easy-modal-hook",
-    "github": "https://github.com/joseluis-dev/easy-modal-hook"
-  },
-  {
-    "id": "2",
-    "type": "Proyecto Pequeño",
-    "name": "Bonus-Calc",
-    "description": "Pequeña aplicación para calcular de manera rápida los veneficios percividos por los integrantes de un grupo de trabajo, basado en su participación y el monto de bonificación asignado al conjunto de actividades.",
-    "tags": ["React", "CSS Modules"],
-    "url": "https://res.cloudinary.com/jl-img-store/image/upload/v1672183121/Portafolio/bonus-calc_xrlj6x.png",
-    "link": "https://bonus-calc.netlify.app",
-    "github": "https://github.com/joseluis-dev/bonus-calc"
-  },
-  {
-    "id": "3",
-    "type": "Proyecto Pequeño",
-    "name": "Página Web - Netsys S.A.S.",
-    "description": "Una página web minimalista, diseñada con ES6, Html y Css. Se empleó la librería emailjs para la forma de contacto.",
-    "tags": ["ES6", "HTML", "CSS", "EmailJS", "Netlify"],
-    "url": "https://res.cloudinary.com/jl-img-store/image/upload/c_scale,w_900/v1661813902/Portafolio/Pagina_Web_uthzam.png",
-    "link": "https://netsys.netlify.app",
-    "github": ""
-  },
-  {
-    "id": "4",
-    "type": "Mi primera App Web",
-    "name": "Mailer",
-    "description": "Mi primera aplicación web, desarrollada con Python usando el framework de Flask, actualmente sin mantenimiento, proyecto realizado como parte del curso Python sin Fronteras de Nicolas Schurmann.",
-    "tags": ["Python", "HTML", "CSS", "SendGrid API", "MySQL", "Heroku"],
-    "url": "https://res.cloudinary.com/jl-img-store/image/upload/c_scale,w_500/v1662048683/Portafolio/Mailer_vpqnue.png",
-    "link": "https://mailerappjy.herokuapp.com",
-    "github": ""
-  }
-]
+{
+  "projects": [
+    {
+      "id": "1",
+      "type": "Proyecto Destacado",
+      "title": "React Library",
+      "description": "Hook sencillo de ventanas emergentes para React, que puede ser adjuntado a cualquier elemento html.",
+      "skills": ["ES6", "HTML", "CSS", "TypeScript", "NPM"],
+      "image": "https://res.cloudinary.com/jl-img-store/image/upload/v1682193849/Portafolio/Easy-Modal-Hook-Image_fzzict.png",
+      "link": "https://www.npmjs.com/package/easy-modal-hook",
+      "github": "https://github.com/joseluis-dev/easy-modal-hook"
+    },
+    {
+      "id": "2",
+      "type": "Proyecto Pequeño",
+      "title": "Bonus-Calc",
+      "description": "Aplicación para calcular de manera rápida los veneficios percividos por los integrantes de un grupo de trabajo, basado en su participación.",
+      "skills": ["React", "CSS Modules"],
+      "image": "https://res.cloudinary.com/jl-img-store/image/upload/v1672183121/Portafolio/bonus-calc_xrlj6x.png",
+      "link": "https://bonus-calc.netlify.app",
+      "github": "https://github.com/joseluis-dev/bonus-calc"
+    },
+    {
+      "id": "3",
+      "type": "Proyecto Pequeño",
+      "title": "Página Web - Netsys S.A.S.",
+      "description": "Una página web minimalista, diseñada con ES6, Html y Css. Se empleó la librería emailjs para la forma de contacto.",
+      "skills": ["ES6", "HTML", "CSS", "EmailJS", "Netlify"],
+      "image": "https://res.cloudinary.com/jl-img-store/image/upload/c_scale,w_900/v1661813902/Portafolio/Pagina_Web_uthzam.png",
+      "link": "https://netsys.netlify.app",
+      "github": ""
+    },
+    {
+      "id": "4",
+      "type": "Mi primera App Web",
+      "title": "Mailer",
+      "description": "Mi primera aplicación web, actualmente sin mantenimiento, proyecto realizado como parte del curso Python sin Fronteras de Nicolas Schurmann.",
+      "skills": ["Python", "HTML", "CSS", "SendGrid API", "MySQL", "Heroku"],
+      "image": "https://res.cloudinary.com/jl-img-store/image/upload/c_scale,w_500/v1662048683/Portafolio/Mailer_vpqnue.png",
+      "link": "https://mailerappjy.herokuapp.com",
+      "github": ""
+    }
+  ]
+}

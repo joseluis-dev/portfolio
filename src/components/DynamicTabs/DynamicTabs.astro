@@ -63,7 +63,9 @@ const { items } = Astro.props;
     window.addEventListener('resize', () => {
       updateDimensions({ item: listItem[0] as HTMLElement });
       (listItem[0] as HTMLElement)?.style.setProperty('color', 'var(--sky-blue)');
+      detailElement.style.setProperty('opacity', '1');
       listItem.forEach(item => item.id !== `tab-0` && (item as HTMLElement).style.setProperty('color', 'var(--text-color)'));
+      listDetails.forEach((detail, i) => i !== 0 && (detail as HTMLElement).style.setProperty('opacity', '0'));
     })
 
     updateDimensions({ item: listItem[0] as HTMLElement });

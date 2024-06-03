@@ -1,10 +1,11 @@
 ---
 interface Props {
   href: string;
+  [key: string]: any;
 }
 
-const { href }: Props = Astro.props;
+const { href, ...otherProps }: Props = Astro.props;
 ---
-<a href={href} class="w-fit border border-[var(--sky-blue)] p-2 text-[var(--sky-blue)] rounded-md hover:bg-[var(--sky-blue-hover)] font-mono">
+<a href={href} {...otherProps} class="w-fit border border-[var(--sky-blue)] p-3 text-[var(--sky-blue)] rounded-md hover:bg-[var(--sky-blue-hover)] font-mono">
   <slot />
 </a>
