@@ -23,12 +23,14 @@ const { title, imgSrc, type, description, skills, link, github }: Props = Astro.
       <h2 class="text-white text-xl">{title}</h2>
     </div>
     <div class="flex flex-col">
-      <p class="py-3">{description}</p>
-      <p class="flex gap-2 font-mono">{
-        skills.map((skill: string) => {
-          return `${skill} `
-        })
-      }</p>
+      <div class="max-h-[160px] overflow-auto">
+        <p class="py-3 ">{description}</p>
+        <p class="flex gap-2 font-mono">{
+          skills.map((skill: string) => {
+            return `${skill} `
+          })
+        }</p>
+      </div>
       <div class="flex gap-2 py-3 icons">
         {link && <a href={link} target="_blank">
           <LinkIcon width={20} height={20}/>

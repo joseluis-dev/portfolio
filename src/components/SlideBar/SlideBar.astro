@@ -1,4 +1,6 @@
 ---
+import Button from "../Button/Button.astro"
+
 const linkList = [
   { id: 1, name: 'Acerca de', path: '#about' },
   { id: 2, name: 'Experiencia', path: '#experience' },
@@ -13,4 +15,25 @@ const linkList = [
       <a href={link.path} class="p-2 border border-transparent hover:border hover:border-[var(--sky-blue)] hover:text-[var(--sky-blue)] rounded-md transition-all duration-200 text-xl">{link.name}</a>
     </li>
   ))}
+  <li>
+    <Button id="curriculum2" className="block">Curriculum</Button>
+  </li>
 </ul>
+
+<script>
+  const curriculumButton2 = document.querySelector('#curriculum2')
+  curriculumButton2?.addEventListener('click', () => {
+    const pdfUrl = '/JoseYepezCV.pdf';
+    const pdfWindow = window.open(pdfUrl);
+
+    if (!pdfWindow || pdfWindow.closed || typeof pdfWindow.closed == 'undefined') {
+      // If the browser cannot open the PDF, download it
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = 'JoseYepezCV.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  })
+</script>

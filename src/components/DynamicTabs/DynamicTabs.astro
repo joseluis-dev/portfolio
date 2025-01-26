@@ -34,7 +34,12 @@ const { items } = Astro.props;
         <li id={`ex-detail-${index}`} class="absolute opacity-0 transition-all duration-300 flex flex-col gap-2">
           <h3 class="text-xl md:text-2xl text-white">{item.position}</h3>
           <p class="text-sm text-[var(--sky-blue)] font-mono">{item.period}</p>
-          <p>{item.tasks}</p>
+          {item.tasks.map(task => (
+            <div class="flex gap-2">
+              <span class="inline-block w-2 min-w-2 h-2 relative top-2 rounded-full bg-[var(--sky-blue)] mr-2"></span>
+              <p class="text-sm text-[var(--text-color)]">{task}</p>
+            </div>
+          ))}
         </li>
       ))}
     </ul>

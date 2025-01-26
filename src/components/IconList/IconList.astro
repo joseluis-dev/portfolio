@@ -1,0 +1,53 @@
+---
+import type React from 'react';
+
+interface ElementList {
+  Icon: React.ComponentType,
+  href?: string,
+  title?: string,
+}
+
+interface Props {
+  links: ElementList[],
+  className?: string,
+}
+
+const { links, className }: Props = Astro.props;
+
+const getHoverColor: { [key: string]: string } = {
+  Facebook: 'hover:text-[var(--facebook)]',
+  Whatsapp: 'hover:text-[var(--whatsapp)]',
+  Telegram: 'hover:text-[var(--telegram)]',
+  LinkedIn: 'hover:text-[var(--linkedin)]',
+  Gmail: 'hover:text-[var(--gmail)]',
+}
+---
+
+<ul class={`flex lg:flex-col items-center lg:fixed lg:bottom-0 z-50 after ${className}`}>
+  {links.map(({ Icon, href, title }, index) => {
+    const color = getHoverColor[title as string];
+    return (
+      <li class={`cursor-pointer ${color} flex p-3 hover:-translate-y-1 transition-all duration-400 ease-linear`}>
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <Icon />
+        </a>
+      </li>
+    )
+  })}
+</ul>
+
+<style>
+
+.after::after {
+  content: '';
+  width: 1px;
+  height: 100px;
+  margin: 20px 0 0 0;
+  background-color: var(--text-color);
+}
+  @media screen and (max-width: 1024px) {
+    .after::after {
+      display: none;
+    }    
+  }
+</style>
